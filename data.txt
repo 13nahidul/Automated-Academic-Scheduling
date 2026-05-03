@@ -1,0 +1,8 @@
+Teachers:
+a|Lecturer|me,b|Lecturer|eee,c|Lecturer|math,dd|Lecturer|phy,e|Lecturer|che
+
+Courses:
+me|THEORY|3,eee|THEORY|3,math|THEORY|4,phy|THEORY|3,che|THEORY|3
+
+Sections:
+a,b,c

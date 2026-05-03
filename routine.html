@@ -1,0 +1,114 @@
+<!DOCTYPE html><html lang='en'><head><meta charset='UTF-8'><title>Class Routine &mdash; Section View</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:#EEF2F7;padding:28px;color:#1a202c;min-width:900px}
+h1{text-align:center;font-size:1.9rem;color:#1e3a5f;margin-bottom:5px}
+.sub{text-align:center;color:#64748b;margin-bottom:26px;font-size:.85rem}
+.nav{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px;justify-content:center;align-items:center}
+.nav a{padding:7px 20px;border-radius:20px;text-decoration:none;background:#fff;color:#334155;font-size:.82rem;font-weight:600;border:1.5px solid #cbd5e1;transition:.15s}
+.nav a:hover{background:#2d5282;color:#fff;border-color:#2d5282}
+.nav a.active{background:#2d5282;color:#fff;border-color:#2d5282}
+.block{background:#fff;border-radius:12px;box-shadow:0 2px 14px rgba(0,0,0,.07);margin-bottom:30px;overflow:hidden;page-break-inside:avoid}
+.block-title{background:#1e3a5f;color:#fff;padding:12px 20px;font-size:1rem;font-weight:700;display:flex;justify-content:space-between;align-items:center}
+.block-title .badge{font-size:.72rem;background:rgba(255,255,255,.2);padding:3px 10px;border-radius:12px;font-weight:400}
+table{width:100%;border-collapse:collapse}
+th{background:#2d5282;color:#fff;padding:9px 6px;font-size:.74rem;white-space:nowrap;text-align:center}
+th.sep,td.sep{background:#c8d8ee;width:5px;padding:0;border:none}
+td{padding:8px 4px;text-align:center;border:1px solid #e2e8f0;font-size:.74rem;min-width:80px}
+td.day{font-weight:700;background:#F7FAFC;white-space:nowrap;color:#2d3748;min-width:90px;padding:8px 10px}
+td.empty{color:#c0cce0}
+td.theory{background:#EBF5FB;border-left:3px solid #2980b9}
+td.lab{background:#FEF9E7;border-left:3px solid #f0a500}
+.cn{font-weight:700;color:#1a4a7a;display:block}
+.sn{color:#607d8b;font-size:.67rem;display:block;margin-top:2px}
+.btn-bar{padding:10px 18px 14px;display:flex;justify-content:flex-end;gap:8px}
+.pdf-btn{display:inline-flex;align-items:center;gap:5px;background:#c0392b;color:#fff;border:none;padding:7px 15px;border-radius:8px;font-size:.78rem;font-weight:600;cursor:pointer;font-family:inherit;transition:.15s;text-decoration:none}
+.pdf-btn:hover{background:#96281b}
+.all-btn{display:inline-flex;align-items:center;gap:5px;background:#1e3a5f;color:#fff;border:none;padding:7px 16px;border-radius:20px;font-size:.82rem;font-weight:600;cursor:pointer;font-family:inherit;transition:.15s}
+.all-btn:hover{background:#2d5282}
+.load-section{max-width:720px;margin:10px auto 36px}
+.load-section h2{color:#1e3a5f;margin-bottom:10px;font-size:1.05rem}
+.lt{width:100%;border-collapse:collapse;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.07)}
+.lt th{background:#2d5282;color:#fff;padding:8px 14px;text-align:left;font-size:.8rem}
+.lt td{padding:8px 14px;border-bottom:1px solid #e8edf2;font-size:.8rem}
+.bar-bg{height:8px;background:#dce8f5;border-radius:4px;margin-top:3px;width:150px}
+.bar-fg{height:8px;background:#2980b9;border-radius:4px}
+@media print{
+  body{background:#fff;padding:10px}
+  .no-print{display:none!important}
+  .block{box-shadow:none;border:1px solid #ccc}
+  .block-title{background:#1e3a5f!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  th{background:#2d5282!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  td.theory{background:#EBF5FB!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  td.lab{background:#FEF9E7!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+<script>
+function dlBlock(id,title){
+  var el=document.getElementById(id);
+  var w=window.open('','_blank','width=1000,height=750');
+  var styles='';
+  document.querySelectorAll('style').forEach(function(s){styles+=s.outerHTML;});
+  w.document.write('<!DOCTYPE html><html><head><meta charset=UTF-8><title>'+title+'</title>');
+  w.document.write(styles);
+  w.document.write('</head><body style="padding:20px;background:#fff">');
+  w.document.write(el.outerHTML);
+  w.document.write('</body></html>');
+  w.document.close();
+  w.focus();
+  setTimeout(function(){w.print();},450);
+}
+function dlAll(){window.print();}
+</script>
+</head><body>
+<h1>&#128197; Class Routine</h1>
+<p class='sub'>Saturday &ndash; Wednesday &nbsp;&bull;&nbsp; Theory: 8:00 AM &ndash; 1:00 PM &nbsp;&bull;&nbsp; Lab: 2:00 PM &ndash; 5:00 PM</p>
+<div class='nav no-print'>
+  <a href='routine.html' class='active'>&#128100; Section View</a>
+  <a href='teacher_routine.html'>&#127979; Teacher View</a>
+  <button class='all-btn' onclick='dlAll()'>&#128438; Print / Save All as PDF</button>
+</div>
+<div class='block' id='sec_0'>
+<div class='block-title'>&#128100; Section a<span class='badge'>16 classes/week</span></div>
+<table><tr><th>Day</th><th>8:00-9:00</th><th>9:00-10:00</th><th>10:00-11:00</th><th>11:00-12:00</th><th>12:00-1:00</th><th class='sep'></th><th>2:00-3:00</th><th>3:00-4:00</th><th>4:00-5:00</th></tr>
+<tr><td class='day'>Saturday</td><td class='theory'><span class='cn'>me</span><span class='sn'>a</span></td><td class='theory'><span class='cn'>math</span><span class='sn'>c</span></td><td class='empty'>&ndash;</td><td class='theory'><span class='cn'>phy</span><span class='sn'>dd</span></td><td class='empty'>&ndash;</td><td class='sep'></td><td class='empty'>&ndash;</td><td class='empty'>&ndash;</td><td class='empty'>&ndash;</td></tr>
+<tr><td class='day'>Sunday</td><td class='theory'><span class='cn'>me</span><span class='sn'>a</span></td><td class='theory'><span class='cn'>math</span><span class='sn'>c</span></td><td class='empty'>&ndash;</td><td class='theory'><span class='cn'>phy</span><span class='sn'>dd</span></td><td class='empty'>&ndash;</td><td class='sep'></td><td class='empty'>&ndash;</td><td class='empty'>&ndash;</td><td class='empty'>&ndash;</td></tr>
+<tr><td class='day'>Monday</td><td class='theory'><span class='cn'>me</span><span class='sn'>a</span></td><td class='theory'><span class='cn'>eee</span><span class='sn'>b</span></td><td class='empty'>&ndash;</td><td class='theory'><span class='cn'>phy</span><span class='sn'>dd</span></td><td class='theory'><span class='cn'>che</span><span class='sn'>e</span></td><td class='sep'></td><td class='empty'>&ndash;</td><td class='empty'>&ndash;</td><td class='empty'>&ndash;</td></tr>
+<tr><td class='day'>Tuesday</td><td class='theory'><span class='cn'>eee</span><span class='sn'>b</span></td><td class='theory'><span class='cn'>math</span><span class='sn'>c</span></td><td class='empty'>&ndash;</td><td class='theory'><span class='cn'>che</span><span class='sn'>e</span></td><td class='empty'>&ndash;</td><td class='sep'></td><td class='empty'>&ndash;</td><td class='empty'>&ndash;</td><td class='empty'>&ndash;</td></tr>
+<tr><td class='day'>Wednesday</td><td class='theory'><span class='cn'>eee</span><span class='sn'>b</span></td><td class='theory'><span class='cn'>math</span><span class='sn'>c</span></td><td class='empty'>&ndash;</td><td class='theory'><span class='cn'>che</span><span class='sn'>e</span></td><td class='empty'>&ndash;</td><td class='sep'></td><td class='empty'>&ndash;</td><td class='empty'>&ndash;</td><td class='empty'>&ndash;</td></tr>
+</table>
+<div class='btn-bar no-print'><button class='pdf-btn' onclick='dlBlock("sec_0","Routine - Section a")'>&#128438; Download PDF &mdash; Section a</button></div>
+</div>
+<div class='block' id='sec_1'>
+<div class='block-title'>&#128100; Section b<span class='badge'>16 classes/week</span></div>
+<table><tr><th>Day</th><th>8:00-9:00</th><th>9:00-10:00</th><th>10:00-11:00</th><th>11:00-12:00</th><th>12:00-1:00</th><th class='sep'></th><th>2:00-3:00</th><th>3:00-4:00</th><th>4:00-5:00</th></tr>
+<tr><td class='day'>Saturday</td><td class='theory'><span class='cn'>math</span><span class='sn'>c</span></td><td class='theory'><span class='cn'>me</span><span class='sn'>a</span></td><td class='empty'>&ndash;</td><td class='empty'>&ndash;</td><td class='theory'><span class='cn'>phy</span><span class='sn'>dd</span></td><td class='sep'></td><td class='empty'>&ndash;</td><td class='empty'>&ndash;</td><td class='empty'>&ndash;</td></tr>
+<tr><td class='day'>Sunday</td><td class='theory'><span class='cn'>math</span><span class='sn'>c</span></td><td class='theory'><span class='cn'>me</span><span class='sn'>a</span></td><td class='empty'>&ndash;</td><td class='empty'>&ndash;</td><td class='theory'><span class='cn'>phy</span><span class='sn'>dd</span></td><td class='sep'></td><td class='empty'>&ndash;</td><td class='empty'>&ndash;</td><td class='empty'>&ndash;</td></tr>
+<tr><td class='day'>Monday</td><td class='theory'><span class='cn'>eee</span><span class='sn'>b</span></td><td class='theory'><span class='cn'>me</span><span class='sn'>a</span></td><td class='empty'>&ndash;</td><td class='theory'><span class='cn'>che</span><span class='sn'>e</span></td><td class='theory'><span class='cn'>phy</span><span class='sn'>dd</span></td><td class='sep'></td><td class='empty'>&ndash;</td><td class='empty'>&ndash;</td><td class='empty'>&ndash;</td></tr>
+<tr><td class='day'>Tuesday</td><td class='theory'><span class='cn'>math</span><span class='sn'>c</span></td><td class='theory'><span class='cn'>eee</span><span class='sn'>b</span></td><td class='empty'>&ndash;</td><td class='empty'>&ndash;</td><td class='theory'><span class='cn'>che</span><span class='sn'>e</span></td><td class='sep'></td><td class='empty'>&ndash;</td><td class='empty'>&ndash;</td><td class='empty'>&ndash;</td></tr>
+<tr><td class='day'>Wednesday</td><td class='theory'><span class='cn'>math</span><span class='sn'>c</span></td><td class='theory'><span class='cn'>eee</span><span class='sn'>b</span></td><td class='empty'>&ndash;</td><td class='empty'>&ndash;</td><td class='theory'><span class='cn'>che</span><span class='sn'>e</span></td><td class='sep'></td><td class='empty'>&ndash;</td><td class='empty'>&ndash;</td><td class='empty'>&ndash;</td></tr>
+</table>
+<div class='btn-bar no-print'><button class='pdf-btn' onclick='dlBlock("sec_1","Routine - Section b")'>&#128438; Download PDF &mdash; Section b</button></div>
+</div>
+<div class='block' id='sec_2'>
+<div class='block-title'>&#128100; Section c<span class='badge'>16 classes/week</span></div>
+<table><tr><th>Day</th><th>8:00-9:00</th><th>9:00-10:00</th><th>10:00-11:00</th><th>11:00-12:00</th><th>12:00-1:00</th><th class='sep'></th><th>2:00-3:00</th><th>3:00-4:00</th><th>4:00-5:00</th></tr>
+<tr><td class='day'>Saturday</td><td class='theory'><span class='cn'>phy</span><span class='sn'>dd</span></td><td class='theory'><span class='cn'>che</span><span class='sn'>e</span></td><td class='theory'><span class='cn'>me</span><span class='sn'>a</span></td><td class='theory'><span class='cn'>math</span><span class='sn'>c</span></td><td class='empty'>&ndash;</td><td class='sep'></td><td class='empty'>&ndash;</td><td class='empty'>&ndash;</td><td class='empty'>&ndash;</td></tr>
+<tr><td class='day'>Sunday</td><td class='theory'><span class='cn'>phy</span><span class='sn'>dd</span></td><td class='empty'>&ndash;</td><td class='theory'><span class='cn'>me</span><span class='sn'>a</span></td><td class='theory'><span class='cn'>math</span><span class='sn'>c</span></td><td class='empty'>&ndash;</td><td class='sep'></td><td class='empty'>&ndash;</td><td class='empty'>&ndash;</td><td class='empty'>&ndash;</td></tr>
+<tr><td class='day'>Monday</td><td class='theory'><span class='cn'>phy</span><span class='sn'>dd</span></td><td class='empty'>&ndash;</td><td class='theory'><span class='cn'>me</span><span class='sn'>a</span></td><td class='theory'><span class='cn'>eee</span><span class='sn'>b</span></td><td class='empty'>&ndash;</td><td class='sep'></td><td class='empty'>&ndash;</td><td class='empty'>&ndash;</td><td class='empty'>&ndash;</td></tr>
+<tr><td class='day'>Tuesday</td><td class='theory'><span class='cn'>che</span><span class='sn'>e</span></td><td class='empty'>&ndash;</td><td class='theory'><span class='cn'>eee</span><span class='sn'>b</span></td><td class='theory'><span class='cn'>math</span><span class='sn'>c</span></td><td class='empty'>&ndash;</td><td class='sep'></td><td class='empty'>&ndash;</td><td class='empty'>&ndash;</td><td class='empty'>&ndash;</td></tr>
+<tr><td class='day'>Wednesday</td><td class='theory'><span class='cn'>che</span><span class='sn'>e</span></td><td class='empty'>&ndash;</td><td class='theory'><span class='cn'>eee</span><span class='sn'>b</span></td><td class='theory'><span class='cn'>math</span><span class='sn'>c</span></td><td class='empty'>&ndash;</td><td class='sep'></td><td class='empty'>&ndash;</td><td class='empty'>&ndash;</td><td class='empty'>&ndash;</td></tr>
+</table>
+<div class='btn-bar no-print'><button class='pdf-btn' onclick='dlBlock("sec_2","Routine - Section c")'>&#128438; Download PDF &mdash; Section c</button></div>
+</div>
+<div class='load-section no-print'>
+<h2>&#128203; Teacher Load Summary</h2>
+<table class='lt'><tr><th>Teacher</th><th>Rank</th><th>Subject</th><th>Load (used / max)</th></tr>
+<tr><td><strong>a</strong></td><td>Lecturer</td><td>me</td><td>9 / 18<div class='bar-bg'><div class='bar-fg' style='width:50%'></div></div></td></tr>
+<tr><td><strong>b</strong></td><td>Lecturer</td><td>eee</td><td>9 / 18<div class='bar-bg'><div class='bar-fg' style='width:50%'></div></div></td></tr>
+<tr><td><strong>c</strong></td><td>Lecturer</td><td>math</td><td>12 / 18<div class='bar-bg'><div class='bar-fg' style='width:66%'></div></div></td></tr>
+<tr><td><strong>dd</strong></td><td>Lecturer</td><td>phy</td><td>9 / 18<div class='bar-bg'><div class='bar-fg' style='width:50%'></div></div></td></tr>
+<tr><td><strong>e</strong></td><td>Lecturer</td><td>che</td><td>9 / 18<div class='bar-bg'><div class='bar-fg' style='width:50%'></div></div></td></tr>
+</table></div>
+</body></html>
